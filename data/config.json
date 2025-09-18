@@ -7,20 +7,20 @@
         "CD1": {
           "key": "CD1",
           "text": "C. Độ hoạt động",
-          "defaultValue": 3,
-          "configuredValue": 3,
+          "defaultValue": 2,
+          "configuredValue": 2,
           "minValue": 1,
           "maxValue": 3,
           "accessAllowed": true,
           "editAllowed": true,
           "explanationMode": true,
-          "explanationDetails": "SenSor & Step,Step,Sensor"
+          "explanationDetails": "SenSor & Step, Số Xung ,Vòng"
         },
         "CD2": {
           "key": "CD2",
-          "text": "Số vòng cuộn",
-          "defaultValue": 2,
-          "configuredValue": 2,
+          "text": "Số lượt chạy",
+          "defaultValue": 3,
+          "configuredValue": 3,
           "minValue": 1,
           "maxValue": 6,
           "accessAllowed": true,
@@ -31,8 +31,8 @@
         "CD3": {
           "key": "CD3",
           "text": "Chiều quay Đ. Cơ",
-          "defaultValue": 1,
-          "configuredValue": 1,
+          "defaultValue": 0,
+          "configuredValue": 0,
           "minValue": 0,
           "maxValue": 1,
           "accessAllowed": true,
@@ -46,7 +46,7 @@
           "defaultValue": 280,
           "configuredValue": 280,
           "minValue": 50,
-          "maxValue": 400,
+          "maxValue": 350,
           "accessAllowed": true,
           "editAllowed": true,
           "explanationMode": false,
@@ -54,6 +54,18 @@
         },
         "CD5": {
           "key": "CD5",
+          "text": "Số xung động cơ",
+          "defaultValue": 400,
+          "configuredValue": 400,
+          "minValue": 100,
+          "maxValue": 2000,
+          "accessAllowed": true,
+          "editAllowed": true,
+          "explanationMode": false,
+          "explanationDetails": ""
+        },
+        "CD6": {
+          "key": "CD6",
           "text": "Số xung chu kì",
           "defaultValue": 200,
           "configuredValue": 200,
@@ -64,8 +76,8 @@
           "explanationMode": false,
           "explanationDetails": ""
         },
-        "CD6": {
-          "key": "CD6",
+        "CD7": {
+          "key": "CD7",
           "text": "Loại máy",
           "defaultValue": 1,
           "configuredValue": 1,
@@ -76,24 +88,24 @@
           "explanationMode": true,
           "explanationDetails": "BROTHER,JUKI"
         },
-        "CD7": {
-          "key": "CD7",
+        "CD8": {
+          "key": "CD8",
           "text": "Đ.Trễ mỗi bước",
           "defaultValue": 20,
           "configuredValue": 20,
           "minValue": 0,
-          "maxValue": 150,
+          "maxValue": 300,
           "accessAllowed": true,
           "editAllowed": true,
           "explanationMode": false,
           "explanationDetails": ""
         },
-        "CD8": {
-          "key": "CD8",
+        "CD9": {
+          "key": "CD9",
           "text": "Đ.Trễ bắt đầu (Brother)",
-          "defaultValue": 7000,
+          "defaultValue": 5500,
           "configuredValue": 5500,
-          "minValue": 1000,
+          "minValue": 500,
           "maxValue": 9999,
           "accessAllowed": true,
           "editAllowed": true,
@@ -101,7 +113,7 @@
           "explanationDetails": ""
         }
       },
-      "totalChildren": 8
+      "totalChildren": 9
     },
     "main2": {
       "text": "CHỨC NĂNG",
