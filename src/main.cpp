@@ -407,7 +407,8 @@ void testMode(){
       bool trangThaiGocStep = digitalRead(sensorOrigin);
       if(!trangThaiGocStep){
         xuatXungPWM(thoiGianDaoPWM);
-      }
+      } 
+      break;
     }
     case 6:
       if (chayTestMode){
@@ -644,8 +645,12 @@ void mainRun(){
     case 1:
       if (soXungDaChay < soXungCanChay){
         xuatXungPWM(thoiGianDaoPWM);
-      } else if (soXungDaChay == soXungCanChay && digitalRead(sensorOrigin)){
+      } else if (soXungDaChay >= soXungCanChay && digitalRead(sensorOrigin)){
         mainStep ++;
+        delay(timeDelayBuoc);
+      } else {
+        trangThaiHoatDong = 200;
+        showSetup("ERROR","E011","Lỗi động cơ, c.biến gốc");
       }
       break;
     case 2:
@@ -653,6 +658,7 @@ void mainRun(){
         xuatXungPWM(thoiGianDaoPWM);
       } else if (soXungDaChay == soXungCanChay){
         mainStep ++;
+        delay(timeDelayBuoc);
       }
       break;
     case 3:
@@ -661,6 +667,7 @@ void mainRun(){
         bool trangThaiHienTaiOrigin = digitalRead(sensorOrigin);
         if (trangThaiCuoiCungOrigin != trangThaiHienTaiOrigin){
           if (trangThaiHienTaiOrigin){
+            lastTimeOut = millis();
             soVongDaChay ++;
           }
           trangThaiCuoiCungOrigin = trangThaiHienTaiOrigin;
@@ -668,6 +675,10 @@ void mainRun(){
       } else {
         mainStep ++;
         delay(timeDelayBuoc);
+      }
+      if (WaitMillis(lastTimeOut,3500)) {
+          trangThaiHoatDong = 200;
+          showSetup("ERROR","E011","Lỗi động cơ, c.biến gốc");
       }
       break;
     default:
@@ -703,6 +714,7 @@ void mainRun(){
       digitalWrite(outRelayY,HIGH);
       mainStep ++;
       delay(timeDelayBuoc);
+      lastTimeOut = millis();
     }
     break;
   case 6:{
@@ -715,6 +727,9 @@ void mainRun(){
       digitalWrite(outRelayX,HIGH);
       mainStep++;
       delay(timeDelayBuoc);
+    } else if (WaitMillis(lastTimeOut,3500)) {
+      trangThaiHoatDong = 200;
+      showSetup("ERROR","E008","Không tìm thấy gốc STEP");
     }
     break;
   }
@@ -829,6 +844,7 @@ void loop() {
       bool trangThaiBanDap = digitalRead(sensorActive);
       if (trangThaiCuoiCungBanDap != trangThaiBanDap) {
         if (!trangThaiBanDap && mainStep == 0) {
+          lastTimeOut = millis();
           mainStep ++;
           trangThaiHoatDong ++;
         }
