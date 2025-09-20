@@ -739,7 +739,6 @@ void mainRun(){
       soVongDaChay = 0;
       trangThaiHoatDong = 1;
       mainStep = 0;
-      delay(200);
     }
     break;
   default:
@@ -842,13 +841,15 @@ void loop() {
       btnMenu.tick();
       // Đảm bảo rằng sensorActive đã được định nghĩa đúng
       bool trangThaiBanDap = digitalRead(sensorActive);
+      //showText(String(trangThaiBanDap).c_str(), String(trangThaiCuoiCungBanDap).c_str());
       if (trangThaiCuoiCungBanDap != trangThaiBanDap) {
+        trangThaiCuoiCungBanDap = trangThaiBanDap;
+        //showText(String(trangThaiBanDap).c_str(), String(trangThaiCuoiCungBanDap).c_str());
         if (!trangThaiBanDap && mainStep == 0) {
           lastTimeOut = millis();
           mainStep ++;
-          trangThaiHoatDong ++;
+          trangThaiHoatDong = 2;
         }
-        trangThaiCuoiCungBanDap = trangThaiBanDap;
       }
       break;
   }
